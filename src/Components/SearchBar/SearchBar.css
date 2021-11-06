@@ -5,44 +5,31 @@
     width: 220px;
     margin-top: 20px;
     margin-right: 20px;
-    border: 1px solid #b4b3b3;
-    border-top: 1px solid #c7c6c6;
     border-radius: 5px;
     height: 40px;
-    
+    border-color: none;
   }
-  .SearchBar:hover {
-    font-weight: 600;
-    border: 1px solid #999999;
-  }
-
 
   .buttonSearch {
+    border: none;
+    text-decoration: none !important;
     width: 120px;
     height: 40px;
-    margin-top: 20px;
-    font-size: 15px;
-    color: rgb(0, 0, 0);
-    background: #fff;
-    border: 1px solid #b4b3b3;
+    margin: 20px;
+    border-radius: 15px;
     font-weight: 600;
-  }
-
-  .buttonSearch:hover {
     cursor: pointer;
-    width: 120px;
-    height: 40px;
-    color: rgb(255, 255, 255);
-    font-weight: 600;
-    background: rgb(0, 0, 0);
-    border: 1px solid rgb(170, 170, 170);
-    box-shadow: 1px 3px 10px 5px rgba(212, 212, 212, 0.747);
+    background: #007aff;
+    color: #ffffff;
   }
-
+  
+  .buttonSearch:hover {
+    border: none;
+    text-decoration: none !important;
+    background: #007bffde;
+  }
+  
   .buttonSearch:active {
-    font-size: 16px;
-    color: rgb(255, 255, 255);
-    font-weight: 600;
-    background: rgba(0, 0, 0, 0.945);
-    box-shadow: 1px 3px 10px 5px rgba(212, 212, 212, 0.747);
+    font-size: 15px;
   }
+  

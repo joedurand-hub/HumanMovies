@@ -17,7 +17,7 @@ export function Cards() {
 
     console.log("State de Movies", movies.results)
 
-    const baseImgUrl = "https://image.tmdb.org/t/p/"
+    const imageURL = "https://image.tmdb.org/t/p/"
     const size = "w500/"
     return (
 
@@ -25,15 +25,14 @@ export function Cards() {
 
             {movies.results?.map((movie, index) => (
 
-            <div >
-                <h2 key={index}> {movie.original_title} </h2> 
-                <img src={`${baseImgUrl}${size}${movie.backdrop_path}`} alt="Image not found"/>
-                <p>{`${movie.overview.substr(0, 75)}...`}</p>
-    
+                <div onClick={() => dispatch(getMoviebyId(movie.id))} className="card">
                 <Link to={`/movie/`} key={movie.id}> 
-                <button onClick={() => dispatch(getMoviebyId(movie.id))}>Ver más</button>
+                    <h1 key={index}> {movie.original_title} </h1> 
+                    <img src={`${imageURL}${size}${movie.backdrop_path}`} alt="Image not found"/>
+                    <strong><p>{`${movie.overview.substr(0, 65)}...`}</p></strong>    
                 </Link>
-           </div>            
+           </div>     
+
             ))}
         </div>
 
