@@ -1,9 +1,9 @@
 .Nav {
-    background: #1f212b;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    position: fixed;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background: #1f212b;
+    position: absolute;
     width: 100%;
     box-shadow: 0 3px 5px 0 rgba(0,0,0,.2);
 }

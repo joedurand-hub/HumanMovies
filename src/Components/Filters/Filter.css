@@ -1,0 +1,6 @@
+.DivSelect {
+    display: flex;
+    align-items: center;
+    text-align: end;
+    flex-direction: column;
+}

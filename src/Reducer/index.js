@@ -1,13 +1,15 @@
 import { 
     GET_MOVIE,
-    FILTER_BY_POPULARITY,
     GET_MOVIE_BY_ID,
-} from '../Actions/index'
+    GET_MOVIE_BY_NAME,
+    FILTER_BY_POPULARITY,
+} from '../Actions/constants'
 
 const initialState = { 
     getAllMovies: [],
     allMovies: [],
     getMovieById: [],
+    getMovieByName: [],
 }
 
 
@@ -19,6 +21,10 @@ function rootReducer(state = initialState, action) {
             
         case GET_MOVIE_BY_ID:
             return { ...state, getMovieById: action.payload}
+
+        case GET_MOVIE_BY_NAME:
+            return {...state, getMovieByName: action.payload}
+ 
 
         case FILTER_BY_POPULARITY:
             const allMovies = state.allMovies

@@ -1,13 +1,11 @@
 import axios from 'axios';
+import { QUERY, API_KEY, URL, GET_MOVIE, GET_MOVIE_BY_ID, GET_MOVIE_BY_NAME, FILTER_BY_POPULARITY } from './constants'
 
-export const GET_MOVIE = "GET_MOVIE";
-export const GET_MOVIE_BY_ID = "GET_MOVIE_BY_ID"
-export const FILTER_BY_POPULARITY = "FILTER_BY_POPULARITY";
 
 export function getMovies() {
     return async function(dispatch) {
          try {
-           const response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=aa0526c566a1bb6b23e2e2d2eea4c4ce`)
+           const response = await axios.get(`${URL}discover/movie${QUERY}${API_KEY}&sort_by=popularity.desc`)
             return dispatch({type: GET_MOVIE, payload: response.data})
 
          } catch(error) {
@@ -19,7 +17,7 @@ export function getMovies() {
 export function getMoviebyId(id) {
    return async function(dispatch) {
         try {
-          const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=aa0526c566a1bb6b23e2e2d2eea4c4ce`)
+          const response = await axios.get(`${URL}movie/${id}${QUERY}${API_KEY}`)
            return dispatch({type: GET_MOVIE_BY_ID, payload: response.data})
 
         } catch(error) {
@@ -28,17 +26,15 @@ export function getMoviebyId(id) {
    }
 }
 
-export const filterByPopularity = (sort) => (dispatch) => {  
-   dispatch({
-       type: sort,        
-     })    
- };
+export function filterByPopularity(dispatch) {
+           return dispatch({type: FILTER_BY_POPULARITY})
+}
 
-export function searchByName() {
+export function searchMovieByName(name) {
    return async function(dispatch) {
         try {
-          const response = await axios.get(`http://localhost:3001/dogs/`)
-           return dispatch({type: GET_MOVIE, payload: response.data})
+          const response = await axios.get(`${URL}search/movie${QUERY}${API_KEY}&query=${name}`)
+           return dispatch({type: GET_MOVIE_BY_NAME, payload: response.data})
 
         } catch(error) {
            console.log(error)

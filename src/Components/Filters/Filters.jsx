@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterByPopularity } from "../../Actions/index";
+import './Filter.css';
+
 export default function Filter() {
     const dispatch = useDispatch();  
 
@@ -10,7 +12,6 @@ export default function Filter() {
     }
 
     return (
-    <div>
         <div className="DivSelect">
 
             <select id="select" onChange={onOrderChange}>
@@ -20,7 +21,6 @@ export default function Filter() {
             </select>
 
         </div>
-    </div>
       );
 
 };
