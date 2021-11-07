@@ -29,20 +29,19 @@ function rootReducer(state = initialState, action) {
         case FILTER_BY_AVERAGE:
             const getMovies = state.getAllMovies
             const allMovies = state.allMovies
-            const order1_2 = action.payload === '9_10' ? getMovies : allMovies.results
-            .sort((a, b) => {
-                const average1 = a.vote_average
-                const average2 = b.vote_average
-                if(average1 <= 2 ) {
-                    if(average2 < average1) return -1
-                    if(average1 < average2) return 1
-                    else {
-                        return 0
-                    }    
-                }   
-
+            
+            const filterBy6_8 = allMovies.results?.map(movie => {
+                return movie
+            }).filter(movie => {
+                return movie.vote_average > 6 && movie.vote_average < 8
             })
-            return { ...state, getMovies: [...order1_2] };
+            // const filterBy2_4 = allMovies.results?.map(movie => {
+            //     return movie
+            // }).filter(movie => {
+            //     return movie.vote_average > 2 && movie.vote_average < 4
+            // })
+            console.log("filterBy6_8", filterBy6_8)
+            return {...state, getAllMovies: [...filterBy6_8]}
 
         default: 
             return state;

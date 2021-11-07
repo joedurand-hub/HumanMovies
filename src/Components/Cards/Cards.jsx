@@ -9,6 +9,8 @@ export function Cards() {
   const movies = useSelector((dataStore) => dataStore.getAllMovies) 
   const name = useSelector((dataStore) => dataStore.getMovieByName)
 
+  const filterByRating = useSelector((dataStore) => dataStore.getAllMovies)
+
 
     useEffect(() => {
         dispatch(getMovies())
