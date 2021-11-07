@@ -1,0 +1,15 @@
+input[type="radio"] {
+    display: none;
+}
+
+.star {
+    cursor: pointer;
+    transition: color 200ms;
+}
+
+p {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 5px;
+
+}

@@ -1,23 +1,24 @@
 import React from "react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { filterByPopularity } from "../../Actions/index";
+import { useDispatch} from "react-redux";
+import { filterByAverage } from "../../Actions/index";
 import './Filter.css';
 
 export default function Filter() {
     const dispatch = useDispatch();  
 
     const onOrderChange = (e) => {
-      dispatch(filterByPopularity(e.target.value));   
+      dispatch(filterByAverage(e.target.value));   
     }
 
     return (
         <div className="DivSelect">
 
             <select id="select" onChange={onOrderChange}>
-                <option value="Most popular"> Order </option>
-                <option value="ASC"> Weight + (menos - mas)</option>
-                <option value="Most popular"></option>
+                <option value="1_2"> 1_2 </option>
+                <option value="3_4"> 3_4 </option>
+                <option value="5_6"> 5_6 </option>
+                <option value="7_8"> 7_8 </option>
+                <option value="9_10"> 9_10 </option>
             </select>
 
         </div>

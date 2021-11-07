@@ -1,5 +1,11 @@
 import axios from 'axios';
-import { QUERY, API_KEY, URL, GET_MOVIE, GET_MOVIE_BY_ID, GET_MOVIE_BY_NAME, FILTER_BY_POPULARITY } from './constants'
+import { URL,
+         QUERY,  
+         API_KEY, 
+         GET_MOVIE, 
+         GET_MOVIE_BY_ID, 
+         GET_MOVIE_BY_NAME, 
+         FILTER_BY_AVERAGE, } from './constants'
 
 
 export function getMovies() {
@@ -12,7 +18,7 @@ export function getMovies() {
             console.log(error)
          }
     }
-}
+}  
 
 export function getMoviebyId(id) {
    return async function(dispatch) {
@@ -26,16 +32,22 @@ export function getMoviebyId(id) {
    }
 }
 
-export function filterByPopularity(dispatch) {
-           return dispatch({type: FILTER_BY_POPULARITY})
-}
-
 export function searchMovieByName(name) {
    return async function(dispatch) {
         try {
           const response = await axios.get(`${URL}search/movie${QUERY}${API_KEY}&query=${name}`)
            return dispatch({type: GET_MOVIE_BY_NAME, payload: response.data})
 
+        } catch(error) {
+           console.log(error)
+        }
+   }
+}
+
+export function filterByAverage() {
+   return async function(dispatch) {
+        try {
+         return dispatch({type: FILTER_BY_AVERAGE})
         } catch(error) {
            console.log(error)
         }
