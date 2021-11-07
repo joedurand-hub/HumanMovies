@@ -24,7 +24,6 @@ function rootReducer(state = initialState, action) {
 
         case GET_MOVIE_BY_NAME:
             return {...state, getMovieByName: action.payload}
- 
 
         case FILTER_BY_POPULARITY:
             const allMovies = state.allMovies

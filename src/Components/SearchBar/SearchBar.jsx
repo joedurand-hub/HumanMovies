@@ -6,22 +6,26 @@ import './SearchBar.css';
 
 export function Search() {
     const dispatch = useDispatch();
-    const [name, setName] = useState('');
-    
 
-    
+
+
     const handleInputChange = (e) => { // Manipular cambios en el input al suceder un evento
-        dispatch((searchMovieByName(e.target.value ? e.target.value : getMovies())))
-        setName(e.target.value)
-        console.log(e.target.value)
-    };
+        const value = e.target.value;
+        if(value.length > 1) {
+            dispatch((searchMovieByName(value)))
+        }
+        if(value.length === 0) {
+            dispatch(getMovies())
+        }
+        console.log("target value del inputChange: ", e.target.value)
+    };  
     
     return (
 
         <div>
         <form>
             <input type="search" placeholder="Insert a name" className="SearchBar"
-            onChange={(e) => handleInputChange(e)} dispatch={(e) => searchMovieByName(e.target.value)}></input>
+            onChange={(e) => handleInputChange(e)} ></input>
         </form>
         </div>
     )
