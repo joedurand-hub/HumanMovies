@@ -23,6 +23,7 @@
 .landing .info p {
     margin-left: 15px;
     text-align: center;
+    color: black;
 }
 
 .landing .info button {

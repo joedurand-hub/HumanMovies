@@ -5,7 +5,11 @@ import { URL,
          GET_MOVIE, 
          GET_MOVIE_BY_ID, 
          GET_MOVIE_BY_NAME, 
-         FILTER_BY_AVERAGE, } from './constants'
+         FILTER_BY_AVERAGE0_2,
+         FILTER_BY_AVERAGE2_4,
+         FILTER_BY_AVERAGE4_6,
+         FILTER_BY_AVERAGE6_8,
+         FILTER_BY_AVERAGE8_10 } from './constants'
 
 
 export function getMovies() {
@@ -44,12 +48,54 @@ export function searchMovieByName(name) {
    }
 }
 
-export function filterByAverage() {
+export function filterByAverage0_2() {
    return async function(dispatch) {
         try {
-         return dispatch({type: FILTER_BY_AVERAGE})
+         return dispatch({type: FILTER_BY_AVERAGE0_2})
         } catch(error) {
            console.log(error)
         }
    }
 }
+
+export function filterByAverage2_4() {
+   return async function(dispatch) {
+        try {
+         return dispatch({type: FILTER_BY_AVERAGE2_4})
+        } catch(error) {
+           console.log(error)
+        }
+   }
+}
+
+export function filterByAverage4_6() {
+   return async function(dispatch) {
+        try {
+         return dispatch({type: FILTER_BY_AVERAGE4_6})
+        } catch(error) {
+           console.log(error)
+        }
+   }
+}
+
+export function filterByAverage6_8() {
+   return async function(dispatch) {
+        try {
+         return dispatch({type: FILTER_BY_AVERAGE6_8})
+        } catch(error) {
+           console.log(error)
+        }
+   }
+}
+
+export function filterByAverage8_10() {
+   return async function(dispatch) {
+        try {
+         return dispatch({type: FILTER_BY_AVERAGE8_10})
+        } catch(error) {
+           console.log(error)
+        }
+   }
+}
+
+

@@ -3,7 +3,7 @@
   justify-content: space-between;
   flex-direction: row;
   background: #1f212b;
-    position: absolute;
+    position: fixed;
     width: 100%;
     box-shadow: 0 3px 5px 0 rgba(0,0,0,.2);
 }

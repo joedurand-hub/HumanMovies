@@ -4,32 +4,35 @@ import Nav from '../Nav/Nav.jsx';
 import './Detail.css'
 
 export function MovieDetailById() {
-    const movie = useSelector((dataStore) => dataStore.getMovieById)
+    const movieDetail = useSelector((dataStore) => dataStore.getMovieById)
 
-    console.log("State del detail", movie)
+    console.log("State del detail", movieDetail)
     const baseImgUrl = "https://image.tmdb.org/t/p/"
     const size = "w500/"
 
         return (
         <div>
             <Nav/>    
+            <div className="div">
 
+                    <h2> {movieDetail.title} </h2> <br />
             <div className="box">
-                <div>
-                    <img src={`${baseImgUrl}${size}${movie.backdrop_path}`} alt="Image not found"/>
-                </div>
+                    <img src={`${baseImgUrl}${size}${movieDetail.backdrop_path}`} alt="Image not found"/>
             
-                <div>
-                    <h2> {movie.title} </h2> 
-                    {movie.genres?.map((genre, index) => (
-                        <h3 key={index}> {genre.name} </h3>
-                    ))}
-                    <p>{movie.overview}</p>
-                        web: {movie.homepage}
+                <div className="boxInfo">
+                    <h4>Description:</h4>
+                    <h4>{movieDetail.overview}</h4>
+                    <p>Vote average: {movieDetail.vote_average}</p>
+                    <p>Genres:</p>
+                    {movieDetail.genres?.map((genre, index) => (
+                        <p key={index}> {genre.name} </p>
+                    ))} <br />
+                        web: {movieDetail.homepage}
                 </div>
             </div>            
         
 
+        </div>
         </div>
     )
 }
